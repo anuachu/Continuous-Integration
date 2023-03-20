@@ -29,7 +29,13 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
 
+      
       - name: Run markdown lint
         run: |
-         npm install remark-cli remark-preset-lint-consistent
-         npx remark . --use remark-preset-lint-consistent --frail
+          npm install remark-cli remark-preset-lint-consistent
+          npx remark . --use remark-preset-lint-consistent --frail
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: remark-lint-report
+          path: public/
